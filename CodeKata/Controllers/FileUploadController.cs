@@ -6,8 +6,10 @@ namespace CodeKata.API.Controllers;
 [Route("api/[controller]")]
 public class FileUploadController : Controller
 {
+    
+    [HttpPost]
     public IActionResult Upload(IFormFile file)
     {
-        return Ok(file.Name);
+        return Ok(file);
     }
 }

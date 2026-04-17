@@ -1,0 +1,138 @@
+﻿{
+  "day": {
+    "startTime": "08:00",
+    "endTime": "17:00"
+  },
+  "tasks": [
+    {
+      "id": "T-001",
+      "name": "Knieoperatie",
+      "durationMinutes": 120,
+      "priority": "Hoog",
+      "deadline": "12:00",
+      "requiredSkill": "Chirurgie"
+    },
+    {
+      "id": "T-002",
+      "name": "Consult cardiologie",
+      "durationMinutes": 30,
+      "priority": "Normaal",
+      "deadline": "11:00",
+      "requiredSkill": "Consult"
+    },
+    {
+      "id": "T-003",
+      "name": "Hechtingen verwijderen",
+      "durationMinutes": 20,
+      "priority": "Laag",
+      "deadline": "16:00",
+      "requiredSkill": "Verpleegkunde"
+    },
+    {
+      "id": "T-004",
+      "name": "Spoedoperatie",
+      "durationMinutes": 90,
+      "priority": "Hoog",
+      "deadline": "10:30",
+      "requiredSkill": "Chirurgie"
+    },
+    {
+      "id": "T-005",
+      "name": "MRI-scan",
+      "durationMinutes": 45,
+      "priority": "Normaal",
+      "deadline": "15:00",
+      "requiredSkill": "Radiologie"
+    },
+    {
+      "id": "T-006",
+      "name": "Dagopname intake",
+      "durationMinutes": 30,
+      "priority": "Normaal",
+      "deadline": "10:00",
+      "requiredSkill": "Verpleegkunde"
+    },
+    {
+      "id": "T-007",
+      "name": "Nazorggesprek",
+      "durationMinutes": 25,
+      "priority": "Laag",
+      "deadline": "17:00",
+      "requiredSkill": "Consult"
+    },
+    {
+      "id": "T-008",
+      "name": "Schouderoperatie",
+      "durationMinutes": 150,
+      "priority": "Hoog",
+      "deadline": "16:00",
+      "requiredSkill": "Chirurgie"
+    },
+    {
+      "id": "T-009",
+      "name": "Röntgenfoto",
+      "durationMinutes": 20,
+      "priority": "Normaal",
+      "deadline": "14:00",
+      "requiredSkill": "Radiologie"
+    },
+    {
+      "id": "T-010",
+      "name": "Wondcontrole",
+      "durationMinutes": 15,
+      "priority": "Laag",
+      "deadline": "13:00",
+      "requiredSkill": "Verpleegkunde"
+    }
+  ],
+  "resources": [
+    {
+      "id": "R-01",
+      "name": "Dr. Janssen",
+      "availableFrom": "08:00",
+      "availableUntil": "16:00",
+      "skills": ["Chirurgie", "Consult"],
+      "maxWorkMinutes": 420
+    },
+    {
+      "id": "R-02",
+      "name": "Dr. Peeters",
+      "availableFrom": "09:00",
+      "availableUntil": "17:00",
+      "skills": ["Chirurgie"],
+      "maxWorkMinutes": 420
+    },
+    {
+      "id": "R-03",
+      "name": "Verpleegkundige Kim",
+      "availableFrom": "08:00",
+      "availableUntil": "14:00",
+      "skills": ["Verpleegkunde"],
+      "maxWorkMinutes": 330
+    },
+    {
+      "id": "R-04",
+      "name": "Verpleegkundige Sam",
+      "availableFrom": "11:00",
+      "availableUntil": "17:00",
+      "skills": ["Verpleegkunde"],
+      "maxWorkMinutes": 330
+    },
+    {
+      "id": "R-05",
+      "name": "Radioloog Ahmed",
+      "availableFrom": "08:30",
+      "availableUntil": "15:30",
+      "skills": ["Radiologie"],
+      "maxWorkMinutes": 390
+    },
+    {
+      "id": "R-06",
+      "name": "Arts-assistent Laura",
+      "availableFrom": "10:00",
+      "availableUntil": "16:00",
+      "skills": ["Consult"],
+      "maxWorkMinutes": 330
+    }
+  ]
+}
