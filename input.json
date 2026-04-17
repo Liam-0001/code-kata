@@ -1,57 +1,644 @@
 ﻿{
   "day": {
     "startTime": "08:00",
-    "endTime": "17:00"
+    "endTime": "18:00"
   },
   "tasks": [
-    { "id": "T-001", "name": "Spoedoperatie 1", "durationMinutes": 90, "priority": "Hoog", "deadline": "10:30", "requiredSkill": "Chirurgie" },
-    { "id": "T-002", "name": "Spoedoperatie 2", "durationMinutes": 90, "priority": "Hoog", "deadline": "11:00", "requiredSkill": "Chirurgie" },
-    { "id": "T-003", "name": "Knieoperatie", "durationMinutes": 120, "priority": "Hoog", "deadline": "13:00", "requiredSkill": "Chirurgie" },
-    { "id": "T-004", "name": "Schouderoperatie", "durationMinutes": 150, "priority": "Hoog", "deadline": "16:00", "requiredSkill": "Chirurgie" },
-    { "id": "T-005", "name": "Kleine heelkunde", "durationMinutes": 60, "priority": "Normaal", "deadline": "15:00", "requiredSkill": "Chirurgie" },
+    {
+      "id": "T1",
+      "name": "Cardiac Emergency A",
+      "durationMinutes": 180,
+      "priority": "Hoog",
+      "deadline": "10:30",
+      "requiredSkill": "cardiology"
+    },
+    {
+      "id": "T2",
+      "name": "Cardiac Emergency B",
+      "durationMinutes": 180,
+      "priority": "Hoog",
+      "deadline": "10:30",
+      "requiredSkill": "cardiology"
+    },
 
-    { "id": "T-006", "name": "Spoedconsult", "durationMinutes": 20, "priority": "Hoog", "deadline": "09:30", "requiredSkill": "Consult" },
-    { "id": "T-007", "name": "Consult cardiologie", "durationMinutes": 30, "priority": "Normaal", "deadline": "11:00", "requiredSkill": "Consult" },
-    { "id": "T-008", "name": "Consult orthopedie", "durationMinutes": 30, "priority": "Normaal", "deadline": "14:00", "requiredSkill": "Consult" },
-    { "id": "T-009", "name": "Postoperatief gesprek", "durationMinutes": 25, "priority": "Laag", "deadline": "17:00", "requiredSkill": "Consult" },
-    { "id": "T-010", "name": "Tweede opinie", "durationMinutes": 40, "priority": "Normaal", "deadline": "16:00", "requiredSkill": "Consult" },
-    { "id": "T-011", "name": "Ontslaggesprek", "durationMinutes": 20, "priority": "Laag", "deadline": "17:00", "requiredSkill": "Consult" },
-    { "id": "T-012", "name": "Dagstart briefing", "durationMinutes": 15, "priority": "Normaal", "deadline": "09:00", "requiredSkill": "Consult" },
+    {
+      "id": "T3",
+      "name": "Trauma Emergency A",
+      "durationMinutes": 120,
+      "priority": "Hoog",
+      "deadline": "10:00",
+      "requiredSkill": "trauma"
+    },
+    {
+      "id": "T4",
+      "name": "Trauma Emergency B",
+      "durationMinutes": 120,
+      "priority": "Hoog",
+      "deadline": "10:00",
+      "requiredSkill": "trauma"
+    },
+    {
+      "id": "T5",
+      "name": "Trauma Emergency C",
+      "durationMinutes": 120,
+      "priority": "Hoog",
+      "deadline": "10:30",
+      "requiredSkill": "trauma"
+    },
 
-    { "id": "T-013", "name": "CT-scan spoed", "durationMinutes": 30, "priority": "Hoog", "deadline": "11:30", "requiredSkill": "Radiologie" },
-    { "id": "T-014", "name": "MRI-scan", "durationMinutes": 45, "priority": "Normaal", "deadline": "15:00", "requiredSkill": "Radiologie" },
-    { "id": "T-015", "name": "Röntgenfoto 1", "durationMinutes": 20, "priority": "Normaal", "deadline": "14:00", "requiredSkill": "Radiologie" },
-    { "id": "T-016", "name": "Röntgenfoto 2", "durationMinutes": 20, "priority": "Normaal", "deadline": "15:30", "requiredSkill": "Radiologie" },
-    { "id": "T-017", "name": "Echo onderzoek", "durationMinutes": 30, "priority": "Laag", "deadline": "16:30", "requiredSkill": "Radiologie" },
-    { "id": "T-018", "name": "Spoed echo", "durationMinutes": 25, "priority": "Hoog", "deadline": "10:00", "requiredSkill": "Radiologie" },
+    {
+      "id": "T6",
+      "name": "Neurology Critical A",
+      "durationMinutes": 90,
+      "priority": "Hoog",
+      "deadline": "11:00",
+      "requiredSkill": "neurology"
+    },
+    {
+      "id": "T7",
+      "name": "Neurology Critical B",
+      "durationMinutes": 90,
+      "priority": "Hoog",
+      "deadline": "11:00",
+      "requiredSkill": "neurology"
+    },
 
-    { "id": "T-019", "name": "Intake dagopname", "durationMinutes": 30, "priority": "Normaal", "deadline": "10:00", "requiredSkill": "Verpleegkunde" },
-    { "id": "T-020", "name": "Medicatiecontrole", "durationMinutes": 20, "priority": "Normaal", "deadline": "12:30", "requiredSkill": "Verpleegkunde" },
-    { "id": "T-021", "name": "Wondzorg spoed", "durationMinutes": 25, "priority": "Hoog", "deadline": "10:00", "requiredSkill": "Verpleegkunde" },
-    { "id": "T-022", "name": "Wondcontrole", "durationMinutes": 15, "priority": "Laag", "deadline": "13:00", "requiredSkill": "Verpleegkunde" },
-    { "id": "T-023", "name": "Hechtingen verwijderen", "durationMinutes": 20, "priority": "Laag", "deadline": "16:00", "requiredSkill": "Verpleegkunde" },
-    { "id": "T-024", "name": "Voorbereiding operatie", "durationMinutes": 40, "priority": "Normaal", "deadline": "11:00", "requiredSkill": "Verpleegkunde" },
-    { "id": "T-025", "name": "Nazorgcontrole", "durationMinutes": 20, "priority": "Laag", "deadline": "17:00", "requiredSkill": "Verpleegkunde" },
-    { "id": "T-026", "name": "Infuus wisselen", "durationMinutes": 15, "priority": "Normaal", "deadline": "14:30", "requiredSkill": "Verpleegkunde" },
-    { "id": "T-027", "name": "Spoed triage", "durationMinutes": 15, "priority": "Hoog", "deadline": "09:15", "requiredSkill": "Verpleegkunde" },
+    {
+      "id": "T8",
+      "name": "ICU Round A",
+      "durationMinutes": 120,
+      "priority": "Hoog",
+      "deadline": "12:00",
+      "requiredSkill": "critical_care"
+    },
+    {
+      "id": "T9",
+      "name": "ICU Round B",
+      "durationMinutes": 120,
+      "priority": "Hoog",
+      "deadline": "12:00",
+      "requiredSkill": "critical_care"
+    },
+    {
+      "id": "T10",
+      "name": "ICU Round C",
+      "durationMinutes": 120,
+      "priority": "Hoog",
+      "deadline": "12:00",
+      "requiredSkill": "critical_care"
+    },
 
-    { "id": "T-028", "name": "Extra consult 1", "durationMinutes": 30, "priority": "Normaal", "deadline": "15:00", "requiredSkill": "Consult" },
-    { "id": "T-029", "name": "Extra consult 2", "durationMinutes": 30, "priority": "Normaal", "deadline": "16:30", "requiredSkill": "Consult" },
-    { "id": "T-030", "name": "Extra consult 3", "durationMinutes": 30, "priority": "Laag", "deadline": "17:00", "requiredSkill": "Consult" },
+    {
+      "id": "T11",
+      "name": "Orthopedic Surgery A",
+      "durationMinutes": 120,
+      "priority": "Normaal",
+      "deadline": "13:00",
+      "requiredSkill": "orthopedics"
+    },
+    {
+      "id": "T12",
+      "name": "Orthopedic Surgery B",
+      "durationMinutes": 120,
+      "priority": "Normaal",
+      "deadline": "13:00",
+      "requiredSkill": "orthopedics"
+    },
 
-    { "id": "T-031", "name": "Extra verpleegtaak 1", "durationMinutes": 25, "priority": "Normaal", "deadline": "15:30", "requiredSkill": "Verpleegkunde" },
-    { "id": "T-032", "name": "Extra verpleegtaak 2", "durationMinutes": 20, "priority": "Laag", "deadline": "17:00", "requiredSkill": "Verpleegkunde" },
+    {
+      "id": "T13",
+      "name": "Minor Surgery A",
+      "durationMinutes": 90,
+      "priority": "Normaal",
+      "deadline": "14:00",
+      "requiredSkill": "surgery"
+    },
+    {
+      "id": "T14",
+      "name": "Minor Surgery B",
+      "durationMinutes": 90,
+      "priority": "Normaal",
+      "deadline": "14:00",
+      "requiredSkill": "surgery"
+    },
+    {
+      "id": "T15",
+      "name": "Minor Surgery C",
+      "durationMinutes": 90,
+      "priority": "Normaal",
+      "deadline": "14:00",
+      "requiredSkill": "surgery"
+    },
 
-    { "id": "T-033", "name": "Extra scan 1", "durationMinutes": 30, "priority": "Normaal", "deadline": "15:30", "requiredSkill": "Radiologie" },
-    { "id": "T-034", "name": "Extra scan 2", "durationMinutes": 30, "priority": "Laag", "deadline": "16:30", "requiredSkill": "Radiologie" },
+    {
+      "id": "T16",
+      "name": "Radiology Review A",
+      "durationMinutes": 60,
+      "priority": "Normaal",
+      "deadline": "15:00",
+      "requiredSkill": "radiology"
+    },
+    {
+      "id": "T17",
+      "name": "Radiology Review B",
+      "durationMinutes": 60,
+      "priority": "Normaal",
+      "deadline": "15:00",
+      "requiredSkill": "radiology"
+    },
 
-    { "id": "T-035", "name": "Laat spoedgeval", "durationMinutes": 45, "priority": "Hoog", "deadline": "13:00", "requiredSkill": "Chirurgie" }
+    {
+      "id": "T18",
+      "name": "ENT Consultation A",
+      "durationMinutes": 45,
+      "priority": "Laag",
+      "deadline": "16:00",
+      "requiredSkill": "ent"
+    },
+    {
+      "id": "T19",
+      "name": "ENT Consultation B",
+      "durationMinutes": 45,
+      "priority": "Laag",
+      "deadline": "16:00",
+      "requiredSkill": "ent"
+    },
+
+    {
+      "id": "T20",
+      "name": "Pediatric Emergency A",
+      "durationMinutes": 60,
+      "priority": "Hoog",
+      "deadline": "11:30",
+      "requiredSkill": "pediatrics"
+    },
+    {
+      "id": "T21",
+      "name": "Pediatric Emergency B",
+      "durationMinutes": 60,
+      "priority": "Hoog",
+      "deadline": "11:30",
+      "requiredSkill": "pediatrics"
+    },
+
+    {
+      "id": "T22",
+      "name": "Dermatology A",
+      "durationMinutes": 30,
+      "priority": "Laag",
+      "deadline": "18:00",
+      "requiredSkill": "dermatology"
+    },
+    {
+      "id": "T23",
+      "name": "Dermatology B",
+      "durationMinutes": 30,
+      "priority": "Laag",
+      "deadline": "18:00",
+      "requiredSkill": "dermatology"
+    },
+
+    {
+      "id": "T24",
+      "name": "Follow-up A",
+      "durationMinutes": 45,
+      "priority": "Laag",
+      "deadline": "17:00",
+      "requiredSkill": "general"
+    },
+    {
+      "id": "T25",
+      "name": "Follow-up B",
+      "durationMinutes": 45,
+      "priority": "Laag",
+      "deadline": "17:00",
+      "requiredSkill": "general"
+    },
+
+    {
+      "id": "T26",
+      "name": "General Checkup 1",
+      "durationMinutes": 30,
+      "priority": "Laag",
+      "deadline": "17:30",
+      "requiredSkill": "general"
+    },
+    {
+      "id": "T27",
+      "name": "General Checkup 2",
+      "durationMinutes": 30,
+      "priority": "Laag",
+      "deadline": "17:30",
+      "requiredSkill": "general"
+    },
+    {
+      "id": "T28",
+      "name": "General Checkup 3",
+      "durationMinutes": 30,
+      "priority": "Laag",
+      "deadline": "17:30",
+      "requiredSkill": "general"
+    },
+    {
+      "id": "T29",
+      "name": "General Checkup 4",
+      "durationMinutes": 30,
+      "priority": "Laag",
+      "deadline": "17:30",
+      "requiredSkill": "general"
+    },
+    {
+      "id": "T30",
+      "name": "General Checkup 5",
+      "durationMinutes": 30,
+      "priority": "Laag",
+      "deadline": "17:30",
+      "requiredSkill": "general"
+    },
+
+    {
+      "id": "T31",
+      "name": "Overflow A",
+      "durationMinutes": 120,
+      "priority": "Laag",
+      "deadline": "18:00",
+      "requiredSkill": "general"
+    },
+    {
+      "id": "T32",
+      "name": "Overflow B",
+      "durationMinutes": 120,
+      "priority": "Laag",
+      "deadline": "18:00",
+      "requiredSkill": "general"
+    },
+
+    {
+      "id": "T33",
+      "name": "Extra Trauma D",
+      "durationMinutes": 120,
+      "priority": "Hoog",
+      "deadline": "10:00",
+      "requiredSkill": "trauma"
+    },
+    {
+      "id": "T34",
+      "name": "Extra Cardiac C",
+      "durationMinutes": 180,
+      "priority": "Hoog",
+      "deadline": "10:30",
+      "requiredSkill": "cardiology"
+    },
+
+    {
+      "id": "T35",
+      "name": "Extra ICU D",
+      "durationMinutes": 120,
+      "priority": "Hoog",
+      "deadline": "12:00",
+      "requiredSkill": "critical_care"
+    },
+
+    {
+      "id": "T36",
+      "name": "General Bulk 1",
+      "durationMinutes": 60,
+      "priority": "Laag",
+      "deadline": "18:00",
+      "requiredSkill": "general"
+    },
+    {
+      "id": "T37",
+      "name": "General Bulk 2",
+      "durationMinutes": 60,
+      "priority": "Laag",
+      "deadline": "18:00",
+      "requiredSkill": "general"
+    },
+    {
+      "id": "T38",
+      "name": "General Bulk 3",
+      "durationMinutes": 60,
+      "priority": "Laag",
+      "deadline": "18:00",
+      "requiredSkill": "general"
+    },
+    {
+      "id": "T39",
+      "name": "General Bulk 4",
+      "durationMinutes": 60,
+      "priority": "Laag",
+      "deadline": "18:00",
+      "requiredSkill": "general"
+    },
+
+    {
+      "id": "T40",
+      "name": "Late Urgent General",
+      "durationMinutes": 90,
+      "priority": "Hoog",
+      "deadline": "16:00",
+      "requiredSkill": "general"
+    },
+
+    {
+      "id": "T41",
+      "name": "Extra Neurology C",
+      "durationMinutes": 90,
+      "priority": "Hoog",
+      "deadline": "11:00",
+      "requiredSkill": "neurology"
+    },
+
+    {
+      "id": "T42",
+      "name": "Extra Pediatrics C",
+      "durationMinutes": 60,
+      "priority": "Hoog",
+      "deadline": "11:30",
+      "requiredSkill": "pediatrics"
+    },
+
+    {
+      "id": "T43",
+      "name": "Surgery Overflow D",
+      "durationMinutes": 90,
+      "priority": "Normaal",
+      "deadline": "14:00",
+      "requiredSkill": "surgery"
+    },
+
+    {
+      "id": "T44",
+      "name": "ENT Overflow C",
+      "durationMinutes": 45,
+      "priority": "Laag",
+      "deadline": "16:00",
+      "requiredSkill": "ent"
+    },
+
+    {
+      "id": "T45",
+      "name": "Radiology Overflow C",
+      "durationMinutes": 60,
+      "priority": "Normaal",
+      "deadline": "15:00",
+      "requiredSkill": "radiology"
+    },
+
+    {
+      "id": "T46",
+      "name": "Dermatology Overflow C",
+      "durationMinutes": 30,
+      "priority": "Laag",
+      "deadline": "18:00",
+      "requiredSkill": "dermatology"
+    },
+
+    {
+      "id": "T47",
+      "name": "General Peak Load 1",
+      "durationMinutes": 120,
+      "priority": "Normaal",
+      "deadline": "17:00",
+      "requiredSkill": "general"
+    },
+    {
+      "id": "T48",
+      "name": "General Peak Load 2",
+      "durationMinutes": 120,
+      "priority": "Normaal",
+      "deadline": "17:00",
+      "requiredSkill": "general"
+    },
+    {
+      "id": "T49",
+      "name": "General Peak Load 3",
+      "durationMinutes": 120,
+      "priority": "Normaal",
+      "deadline": "17:00",
+      "requiredSkill": "general"
+    },
+
+    {
+      "id": "T50",
+      "name": "Extra Cardiology E",
+      "durationMinutes": 300,
+      "priority": "Hoog",
+      "deadline": "09:30",
+      "requiredSkill": "cardiology"
+    }
   ],
   "resources": [
-    { "id": "R-01", "name": "Dr. Janssen", "availableFrom": "08:00", "availableUntil": "16:00", "skills": ["Chirurgie", "Consult"], "maxWorkMinutes": 420 },
-    { "id": "R-02", "name": "Dr. Peeters", "availableFrom": "09:00", "availableUntil": "17:00", "skills": ["Chirurgie"], "maxWorkMinutes": 420 },
-    { "id": "R-03", "name": "Verpleegkundige Kim", "availableFrom": "08:00", "availableUntil": "14:00", "skills": ["Verpleegkunde"], "maxWorkMinutes": 330 },
-    { "id": "R-04", "name": "Verpleegkundige Sam", "availableFrom": "11:00", "availableUntil": "17:00", "skills": ["Verpleegkunde"], "maxWorkMinutes": 330 },
-    { "id": "R-05", "name": "Radioloog Ahmed", "availableFrom": "08:30", "availableUntil": "15:30", "skills": ["Radiologie"], "maxWorkMinutes": 390 }
+    {
+      "id": "D1",
+      "name": "Cardiologist",
+      "availableFrom": "08:00",
+      "availableUntil": "18:00",
+      "skills": ["cardiology"],
+      "maxWorkMinutes": 480
+    },
+
+    {
+      "id": "D2",
+      "name": "Trauma 1",
+      "availableFrom": "08:00",
+      "availableUntil": "18:00",
+      "skills": ["trauma"],
+      "maxWorkMinutes": 480
+    },
+    {
+      "id": "D3",
+      "name": "Trauma 2",
+      "availableFrom": "08:00",
+      "availableUntil": "18:00",
+      "skills": ["trauma"],
+      "maxWorkMinutes": 480
+    },
+
+    {
+      "id": "D4",
+      "name": "Neurologist",
+      "availableFrom": "08:00",
+      "availableUntil": "14:00",
+      "skills": ["neurology"],
+      "maxWorkMinutes": 300
+    },
+
+    {
+      "id": "D5",
+      "name": "Orthopedist",
+      "availableFrom": "08:00",
+      "availableUntil": "18:00",
+      "skills": ["orthopedics"],
+      "maxWorkMinutes": 480
+    },
+
+    {
+      "id": "D6",
+      "name": "Pediatrician",
+      "availableFrom": "08:00",
+      "availableUntil": "18:00",
+      "skills": ["pediatrics"],
+      "maxWorkMinutes": 480
+    },
+
+    {
+      "id": "D7",
+      "name": "Radiologist",
+      "availableFrom": "08:00",
+      "availableUntil": "18:00",
+      "skills": ["radiology"],
+      "maxWorkMinutes": 480
+    },
+
+    {
+      "id": "D8",
+      "name": "Critical Care 1",
+      "availableFrom": "08:00",
+      "availableUntil": "18:00",
+      "skills": ["critical_care"],
+      "maxWorkMinutes": 480
+    },
+    {
+      "id": "D9",
+      "name": "Critical Care 2",
+      "availableFrom": "08:00",
+      "availableUntil": "18:00",
+      "skills": ["critical_care"],
+      "maxWorkMinutes": 480
+    },
+
+    {
+      "id": "D10",
+      "name": "Surgeon 1",
+      "availableFrom": "08:00",
+      "availableUntil": "18:00",
+      "skills": ["surgery"],
+      "maxWorkMinutes": 480
+    },
+    {
+      "id": "D11",
+      "name": "Surgeon 2",
+      "availableFrom": "08:00",
+      "availableUntil": "18:00",
+      "skills": ["surgery"],
+      "maxWorkMinutes": 480
+    },
+
+    {
+      "id": "D12",
+      "name": "ENT 1",
+      "availableFrom": "08:00",
+      "availableUntil": "18:00",
+      "skills": ["ent"],
+      "maxWorkMinutes": 480
+    },
+    {
+      "id": "D13",
+      "name": "ENT 2",
+      "availableFrom": "08:00",
+      "availableUntil": "18:00",
+      "skills": ["ent"],
+      "maxWorkMinutes": 480
+    },
+
+    {
+      "id": "D14",
+      "name": "Dermatologist",
+      "availableFrom": "08:00",
+      "availableUntil": "18:00",
+      "skills": ["dermatology"],
+      "maxWorkMinutes": 480
+    },
+
+    {
+      "id": "D15",
+      "name": "General 1",
+      "availableFrom": "08:00",
+      "availableUntil": "18:00",
+      "skills": ["general"],
+      "maxWorkMinutes": 480
+    },
+    {
+      "id": "D16",
+      "name": "General 2",
+      "availableFrom": "08:00",
+      "availableUntil": "18:00",
+      "skills": ["general"],
+      "maxWorkMinutes": 480
+    },
+    {
+      "id": "D17",
+      "name": "General 3",
+      "availableFrom": "08:00",
+      "availableUntil": "18:00",
+      "skills": ["general"],
+      "maxWorkMinutes": 480
+    },
+    {
+      "id": "D18",
+      "name": "General 4",
+      "availableFrom": "08:00",
+      "availableUntil": "18:00",
+      "skills": ["general"],
+      "maxWorkMinutes": 480
+    },
+    {
+      "id": "D19",
+      "name": "General 5",
+      "availableFrom": "08:00",
+      "availableUntil": "18:00",
+      "skills": ["general"],
+      "maxWorkMinutes": 480
+    },
+    {
+      "id": "D20",
+      "name": "General 6",
+      "availableFrom": "08:00",
+      "availableUntil": "18:00",
+      "skills": ["general"],
+      "maxWorkMinutes": 480
+    },
+    {
+      "id": "D21",
+      "name": "General 7",
+      "availableFrom": "08:00",
+      "availableUntil": "18:00",
+      "skills": ["general"],
+      "maxWorkMinutes": 480
+    },
+    {
+      "id": "D22",
+      "name": "General 8",
+      "availableFrom": "08:00",
+      "availableUntil": "18:00",
+      "skills": ["general"],
+      "maxWorkMinutes": 480
+    },
+    {
+      "id": "D23",
+      "name": "General 9",
+      "availableFrom": "08:00",
+      "availableUntil": "18:00",
+      "skills": ["general"],
+      "maxWorkMinutes": 480
+    },
+    {
+      "id": "D24",
+      "name": "General 10",
+      "availableFrom": "08:00",
+      "availableUntil": "18:00",
+      "skills": ["general"],
+      "maxWorkMinutes": 480
+    },
+    {
+      "id": "D25",
+      "name": "General 11",
+      "availableFrom": "08:00",
+      "availableUntil": "18:00",
+      "skills": ["general"],
+      "maxWorkMinutes": 480
+    }
   ]
 }
