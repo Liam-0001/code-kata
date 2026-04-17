@@ -4,6 +4,13 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>CodeKata.API</AssemblyName>
+    <RootNamespace>CodeKata.API</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CodeKata.BL.DOMAIN\CodeKata.BL.DOMAIN.csproj" />
+    <ProjectReference Include="..\CodeKata.BL\CodeKata.BL.csproj" />
+  </ItemGroup>
 
 </Project>

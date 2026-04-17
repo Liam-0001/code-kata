@@ -1,3 +1,6 @@
 <Solution>
+  <Project Path="CodeKata.BL.DOMAIN/CodeKata.BL.DOMAIN.csproj" />
+  <Project Path="CodeKata.BL/CodeKata.BL.csproj" />
+  <Project Path="CodeKata.DAL/CodeKata.DAL.csproj" />
   <Project Path="CodeKata/CodeKata.csproj" />
 </Solution>
