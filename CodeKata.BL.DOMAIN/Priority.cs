@@ -1,8 +1,17 @@
-﻿namespace CodeKata.BL.DOMAIN;
+﻿using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
+namespace CodeKata.BL.DOMAIN;
+
+[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum Priority
 {
+    [JsonStringEnumMemberName("Hoog")]
     High,
-    Medium,
-    Low,
+    
+    [JsonStringEnumMemberName("Normaal")]
+    Normal,
+    
+    [JsonStringEnumMemberName("Laag")]
+    Low
 }
