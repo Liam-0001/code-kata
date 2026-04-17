@@ -1,4 +1,5 @@
 ﻿using CodeKata.BL;
+using CodeKata.BL.DTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CodeKata.API.Controllers;
@@ -16,7 +17,7 @@ public class FileUploadController(IFileHandler fileHandler, IPlanningEngineServi
         var content = _fileHandler.DeserializeFromStream(file.OpenReadStream());
 
         var solution = await _planningService.CreatePlanningOptimal2(content.Tasks, content.Resources);
-
-        return Ok(solution);
+        var result = new Result() { Results = solution.ToList() };
+        return Ok(result);
     }
 }

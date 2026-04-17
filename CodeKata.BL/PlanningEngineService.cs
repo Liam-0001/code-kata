@@ -85,8 +85,8 @@ public class PlanningEngineService : IPlanningEngineService
                 results.Add(
                     new ResultDTO
                     {
-                        Resource = best.ResourceTracker.Resource.Name,
-                        Task = task.Name,
+                        Resource = best.ResourceTracker.Resource.Id,
+                        Task = task.Id,
                         Time = best.Start,
                     }
                 );
@@ -141,8 +141,8 @@ public class PlanningEngineService : IPlanningEngineService
                     currentResults.Add(
                         new ResultDTO
                         {
-                            Resource = tracker.Resource.Name,
-                            Task = task.Name,
+                            Resource = tracker.Resource.Id,
+                            Task = task.Id,
                             Time = actualStart,
                         }
                     );
@@ -206,8 +206,8 @@ public class PlanningEngineService : IPlanningEngineService
             results.Add(
                 new ResultDTO
                 {
-                    Resource = bestResource.Resource.Name,
-                    Task = task.Name,
+                    Resource = bestResource.Resource.Id,
+                    Task = task.Id,
                     Time = bestResource.TimeRange.Start,
                 }
             );
@@ -216,7 +216,7 @@ public class PlanningEngineService : IPlanningEngineService
                 bestResource.TimeRange.End
             );
         }
-
+        /*
         results.Add(
             new ResultDTO
             {
@@ -224,7 +224,7 @@ public class PlanningEngineService : IPlanningEngineService
                 Task = tasks.FirstOrDefault()?.Name ?? throw new NotImplementedException(),
                 Time = resources.FirstOrDefault()?.StartTime ?? throw new NotImplementedException(),
             }
-        );
+        );*/
         return results;
     }
 }
