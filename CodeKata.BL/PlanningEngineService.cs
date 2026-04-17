@@ -5,6 +5,104 @@ namespace CodeKata.BL;
 
 public class PlanningEngineService : IPlanningEngineService
 {
+    public async Task<IEnumerable<ResultDTO>> CreatePlanningOptimal2(List<DOMAIN.Task> tasks, List<Resource> resources)
+    {
+        try
+        {
+            List<ResultDTO> results = [];
+            var resourceTrackers = resources
+                .Select(r => new ResourceTracker { Resource = r, TimeRange = new TimeRange(r.StartTime, r.EndTime) })
+                .ToList();
+
+            // We sort tasks by priority first (High > Medium > Low), then by deadline (earlier first) as a tiebreaker
+            var sortedTasks = tasks
+                .OrderBy(t => t.Priority) // Enum order: High=0, Medium=1, Low=2
+                .ThenBy(t => t.Deadline)
+                .ToList();
+
+            foreach (var task in sortedTasks)
+            {
+                // Find all resources with required skill and available time slot that fits the task duration
+                var suitableResources = resourceTrackers
+                    .Where(rt => rt.Resource.Skills.Contains(task.RequiredSkill.ToString()))
+                    .Select(rt =>
+                    {
+                        // Find the earliest possible start time within the resource's availability
+                        var start = rt.TimeRange.Start;
+                        var end = start.AddMinutes(task.Minutes);
+
+                        // Check if it fits within working hours and before deadline (if applicable)
+                        if (end > rt.TimeRange.End || end > task.Deadline)
+                            return null; // Not feasible for deadline or working hours
+
+                        return new
+                        {
+                            ResourceTracker = rt,
+                            Start = start,
+                            End = end,
+                        };
+                    })
+                    .Where(x => x != null)
+                    .ToList();
+
+                // If no resource can meet the deadline, relax the deadline constraint (soft constraint)
+                if (!suitableResources.Any())
+                {
+                    Console.WriteLine($"Warning: No resource found for task '{task.Name}' within deadline. Relaxing deadline.");
+
+                    suitableResources = resourceTrackers
+                        .Where(rt => rt.Resource.Skills.Contains(task.RequiredSkill.ToString()))
+                        .Select(rt =>
+                        {
+                            var start = rt.TimeRange.Start;
+                            var end = start.AddMinutes(task.Minutes);
+
+                            if (end > rt.TimeRange.End)
+                                return null; // Still needs to fit in working hours
+
+                            return new
+                            {
+                                ResourceTracker = rt,
+                                Start = start,
+                                End = end,
+                            };
+                        })
+                        .Where(x => x != null)
+                        .ToList();
+                }
+
+                // If still no suitable resource, skip the task
+                if (!suitableResources.Any())
+                {
+                    Console.WriteLine($"Warning: No resource with required skill for task '{task.Name}'. Skipping.");
+                    continue;
+                }
+
+                // Pick the best candidate: prefer earlier start time (maximizes future flexibility)
+                var best = suitableResources.OrderBy(x => x.Start).First();
+
+                // Assign task
+                results.Add(
+                    new ResultDTO
+                    {
+                        Resource = best.ResourceTracker.Resource.Name,
+                        Task = task.Name,
+                        Time = best.Start,
+                    }
+                );
+
+                // Update the resource’s available time range (move start forward)
+                best.ResourceTracker.TimeRange = new TimeRange(best.End, best.ResourceTracker.TimeRange.End);
+            }
+
+            return results;
+        }
+        catch (Exception e)
+        {
+            throw e;
+        }
+    }
+
     public async Task<IEnumerable<ResultDTO>> CreatePlanningOptimal(List<DOMAIN.Task> tasks, List<Resource> resources, Day day)
     {
         var bestResults = new List<ResultDTO>();

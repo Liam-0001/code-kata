@@ -11,12 +11,12 @@ public class FileUploadController(IFileHandler fileHandler, IPlanningEngineServi
     private readonly IPlanningEngineService _planningService = planningService;
 
     [HttpPost]
-    public IActionResult Upload(IFormFile file)
+    public async Task<IActionResult> Upload(IFormFile file)
     {
         var content = _fileHandler.DeserializeFromStream(file.OpenReadStream());
 
-        var solution = _planningService.CreatePlanningOptimal(content.Tasks, content.Resources, content.Day);
+        var solution = await _planningService.CreatePlanningOptimal2(content.Tasks, content.Resources);
 
-        return Ok(content);
+        return Ok(solution);
     }
 }
