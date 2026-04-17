@@ -8,7 +8,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\CodeKata.BL.DOMAIN\CodeKata.BL.DOMAIN.csproj" />
-      <ProjectReference Include="..\CodeKata.DAL\CodeKata.DAL.csproj" />
     </ItemGroup>
 
 </Project>

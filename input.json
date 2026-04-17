@@ -6,6 +6,14 @@
   "tasks": [
     {
       "id": "T-001",
+      "name": "Spoedoperatie buik",
+      "durationMinutes": 90,
+      "priority": "Hoog",
+      "deadline": "10:30",
+      "requiredSkill": "Chirurgie"
+    },
+    {
+      "id": "T-002",
       "name": "Knieoperatie",
       "durationMinutes": 120,
       "priority": "Hoog",
@@ -13,55 +21,7 @@
       "requiredSkill": "Chirurgie"
     },
     {
-      "id": "T-002",
-      "name": "Consult cardiologie",
-      "durationMinutes": 30,
-      "priority": "Normaal",
-      "deadline": "11:00",
-      "requiredSkill": "Consult"
-    },
-    {
       "id": "T-003",
-      "name": "Hechtingen verwijderen",
-      "durationMinutes": 20,
-      "priority": "Laag",
-      "deadline": "16:00",
-      "requiredSkill": "Verpleegkunde"
-    },
-    {
-      "id": "T-004",
-      "name": "Spoedoperatie",
-      "durationMinutes": 90,
-      "priority": "Hoog",
-      "deadline": "10:30",
-      "requiredSkill": "Chirurgie"
-    },
-    {
-      "id": "T-005",
-      "name": "MRI-scan",
-      "durationMinutes": 45,
-      "priority": "Normaal",
-      "deadline": "15:00",
-      "requiredSkill": "Radiologie"
-    },
-    {
-      "id": "T-006",
-      "name": "Dagopname intake",
-      "durationMinutes": 30,
-      "priority": "Normaal",
-      "deadline": "10:00",
-      "requiredSkill": "Verpleegkunde"
-    },
-    {
-      "id": "T-007",
-      "name": "Nazorggesprek",
-      "durationMinutes": 25,
-      "priority": "Laag",
-      "deadline": "17:00",
-      "requiredSkill": "Consult"
-    },
-    {
-      "id": "T-008",
       "name": "Schouderoperatie",
       "durationMinutes": 150,
       "priority": "Hoog",
@@ -69,7 +29,39 @@
       "requiredSkill": "Chirurgie"
     },
     {
-      "id": "T-009",
+      "id": "T-004",
+      "name": "Consult cardiologie",
+      "durationMinutes": 30,
+      "priority": "Normaal",
+      "deadline": "11:00",
+      "requiredSkill": "Consult"
+    },
+    {
+      "id": "T-005",
+      "name": "Consult orthopedie",
+      "durationMinutes": 30,
+      "priority": "Normaal",
+      "deadline": "14:00",
+      "requiredSkill": "Consult"
+    },
+    {
+      "id": "T-006",
+      "name": "Nazorggesprek",
+      "durationMinutes": 25,
+      "priority": "Laag",
+      "deadline": "17:00",
+      "requiredSkill": "Consult"
+    },
+    {
+      "id": "T-007",
+      "name": "MRI-scan",
+      "durationMinutes": 45,
+      "priority": "Normaal",
+      "deadline": "15:00",
+      "requiredSkill": "Radiologie"
+    },
+    {
+      "id": "T-008",
       "name": "Röntgenfoto",
       "durationMinutes": 20,
       "priority": "Normaal",
@@ -77,12 +69,100 @@
       "requiredSkill": "Radiologie"
     },
     {
+      "id": "T-009",
+      "name": "CT-scan spoed",
+      "durationMinutes": 30,
+      "priority": "Hoog",
+      "deadline": "11:30",
+      "requiredSkill": "Radiologie"
+    },
+    {
       "id": "T-010",
+      "name": "Dagopname intake",
+      "durationMinutes": 30,
+      "priority": "Normaal",
+      "deadline": "10:00",
+      "requiredSkill": "Verpleegkunde"
+    },
+    {
+      "id": "T-011",
+      "name": "Hechtingen verwijderen",
+      "durationMinutes": 20,
+      "priority": "Laag",
+      "deadline": "16:00",
+      "requiredSkill": "Verpleegkunde"
+    },
+    {
+      "id": "T-012",
       "name": "Wondcontrole",
       "durationMinutes": 15,
       "priority": "Laag",
       "deadline": "13:00",
       "requiredSkill": "Verpleegkunde"
+    },
+    {
+      "id": "T-013",
+      "name": "Medicatiecontrole",
+      "durationMinutes": 20,
+      "priority": "Normaal",
+      "deadline": "12:30",
+      "requiredSkill": "Verpleegkunde"
+    },
+    {
+      "id": "T-014",
+      "name": "Spoedconsult",
+      "durationMinutes": 20,
+      "priority": "Hoog",
+      "deadline": "09:30",
+      "requiredSkill": "Consult"
+    },
+    {
+      "id": "T-015",
+      "name": "Voorbereiding operatie",
+      "durationMinutes": 40,
+      "priority": "Normaal",
+      "deadline": "11:00",
+      "requiredSkill": "Verpleegkunde"
+    },
+    {
+      "id": "T-016",
+      "name": "Post-operatieve controle",
+      "durationMinutes": 30,
+      "priority": "Normaal",
+      "deadline": "15:30",
+      "requiredSkill": "Consult"
+    },
+    {
+      "id": "T-017",
+      "name": "Echo onderzoek",
+      "durationMinutes": 30,
+      "priority": "Laag",
+      "deadline": "16:30",
+      "requiredSkill": "Radiologie"
+    },
+    {
+      "id": "T-018",
+      "name": "Patiënt ontslaggesprek",
+      "durationMinutes": 20,
+      "priority": "Laag",
+      "deadline": "17:00",
+      "requiredSkill": "Consult"
+    },
+    {
+      "id": "T-019",
+      "name": "Spoedwondzorg",
+      "durationMinutes": 25,
+      "priority": "Hoog",
+      "deadline": "10:00",
+      "requiredSkill": "Verpleegkunde"
+    },
+    {
+      "id": "T-020",
+      "name": "Tweede opinie consult",
+      "durationMinutes": 40,
+      "priority": "Normaal",
+      "deadline": "16:00",
+      "requiredSkill": "Consult"
     }
   ],
   "resources": [
