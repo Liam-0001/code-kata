@@ -1,8 +1,11 @@
+using CodeKata.BL;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<IPlanningEngineService, PlanningEngineService>();
 
 var app = builder.Build();
 
