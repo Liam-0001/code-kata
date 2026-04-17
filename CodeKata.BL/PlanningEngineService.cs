@@ -5,87 +5,77 @@ namespace CodeKata.BL;
 
 public class PlanningEngineService : IPlanningEngineService
 {
-    public async Task<IEnumerable<ResultDTO>> CreatePlanningOptimal(List<DOMAIN.Task> tasks, List<Resource> resources)
+    public async Task<IEnumerable<ResultDTO>> CreatePlanningOptimal(List<DOMAIN.Task> tasks, List<Resource> resources, Day day)
     {
         var bestResults = new List<ResultDTO>();
-        double minTotalDelay = double.MaxValue;
+        double bestScore = double.MinValue;
 
-        var permutations = GetPermutations(tasks);
-
-        foreach (var taskOrder in permutations)
+        void Backtrack(int taskIndex, List<ResultDTO> currentResults, List<ResourceTracker> currentTrackers, double currentScore)
         {
-            var currentResults = new List<ResultDTO>();
-            var resourceClocks = resources.ToDictionary(r => r.Id, r => r.StartTime);
-            double currentDelay = 0;
-
-            foreach (var task in taskOrder)
+            if (taskIndex == tasks.Count)
             {
-                var bestResource = resources
-                    .Where(r => r.Skills.Select(s => s.ToString()).Contains(task.RequiredSkill.ToString()))
-                    .Where(r => resourceClocks[r.Id].AddMinutes(task.Minutes) <= r.EndTime)
-                    .OrderBy(r =>
-                        resourceClocks[r.Id].AddMinutes(task.Minutes) > task.Deadline
-                            ? (resourceClocks[r.Id].AddMinutes(task.Minutes).ToTimeSpan() - task.Deadline.ToTimeSpan()).TotalMinutes
-                            : 0
-                    )
-                    .ThenBy(r => resourceClocks[r.Id])
-                    .FirstOrDefault();
-
-                if (bestResource != null)
+                if (currentScore > bestScore)
                 {
-                    var startTime = resourceClocks[bestResource.Id];
-                    var endTime = startTime.AddMinutes(task.Minutes);
+                    bestScore = currentScore;
+                    bestResults = new List<ResultDTO>(currentResults);
+                }
+                return;
+            }
+
+            var task = tasks[taskIndex];
+            bool planned = false;
+
+            foreach (var tracker in currentTrackers.Where(r => r.Resource.Skills.Contains(task.RequiredSkill)))
+            {
+                var actualStart = tracker.TimeRange.Start < day.StartTime ? day.StartTime : tracker.TimeRange.Start;
+                var taskEnd = actualStart.AddMinutes(task.Minutes);
+                var dayEndLimit = tracker.TimeRange.End < day.EndTime ? tracker.TimeRange.End : day.EndTime;
+
+                if (taskEnd <= dayEndLimit && actualStart >= tracker.TimeRange.Start)
+                {
+                    planned = true;
+                    var previousRange = tracker.TimeRange;
+
+                    double penalty = taskEnd > task.Deadline ? (taskEnd - task.Deadline).TotalMinutes * 20 : 0;
+                    double priorityWeight = task.Priority == Priority.High ? 5000 : (task.Priority == Priority.Medium ? 2000 : 500);
+                    double stepScore = priorityWeight - (taskEnd.ToTimeSpan().TotalMinutes) - penalty;
 
                     currentResults.Add(
                         new ResultDTO
                         {
-                            Resource = bestResource.Name,
+                            Resource = tracker.Resource.Name,
                             Task = task.Name,
-                            Time = startTime,
+                            Time = actualStart,
                         }
                     );
-                    resourceClocks[bestResource.Id] = endTime;
+                    tracker.TimeRange = new TimeRange(taskEnd, tracker.TimeRange.End);
 
-                    if (endTime > task.Deadline)
-                        currentDelay += (endTime.ToTimeSpan() - task.Deadline.ToTimeSpan()).TotalMinutes;
-                }
-                else
-                {
-                    Console.WriteLine($"Warning: Task {task.Name} could not be planned due to unavailable resources.");
+                    Backtrack(taskIndex + 1, currentResults, currentTrackers, currentScore + stepScore);
+
+                    tracker.TimeRange = previousRange;
+                    currentResults.RemoveAt(currentResults.Count - 1);
                 }
             }
 
-            if (currentDelay < minTotalDelay)
+            if (!planned)
             {
-                minTotalDelay = currentDelay;
-                bestResults = currentResults;
+                Backtrack(taskIndex + 1, currentResults, currentTrackers, currentScore - 100000);
             }
         }
 
-        return await System.Threading.Tasks.Task.FromResult(bestResults);
-    }
+        var trackers = resources
+            .Select(r => new ResourceTracker { Resource = r, TimeRange = new TimeRange(r.StartTime, r.EndTime) })
+            .ToList();
 
-    private IEnumerable<IEnumerable<DOMAIN.Task>> GetPermutations(List<DOMAIN.Task> list)
-    {
-        var items = list.OrderBy(t => t.Priority).ToList();
-        return Generate(items.Count, items);
+        Backtrack(0, new List<ResultDTO>(), trackers, 0);
 
-        IEnumerable<IEnumerable<DOMAIN.Task>> Generate(int n, List<DOMAIN.Task> curr)
+        var plannedTaskNames = bestResults.Select(r => r.Task).ToHashSet();
+        foreach (var task in tasks.Where(t => !plannedTaskNames.Contains(t.Name)))
         {
-            if (n == 1)
-                yield return new List<DOMAIN.Task>(curr);
-            else
-            {
-                for (int i = 0; i < n; i++)
-                {
-                    foreach (var p in Generate(n - 1, curr))
-                        yield return p;
-                    var temp = curr[n % 2 == 0 ? 0 : i];
-                    curr[n % 2 == 0 ? 0 : i] = curr[n - 1];
-                    curr[n - 1] = temp;
-                }
-            }
+            Console.WriteLine($"Warning: task {task.Name} could not be planned");
         }
+
+        return bestResults;
     }
 
     public async Task<IEnumerable<ResultDTO>> CreatePlanning(List<DOMAIN.Task> tasks, List<DOMAIN.Resource> resources)
