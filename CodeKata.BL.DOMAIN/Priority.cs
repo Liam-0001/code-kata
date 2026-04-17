@@ -8,10 +8,10 @@ public enum Priority
 {
     [JsonStringEnumMemberName("Hoog")]
     High,
-    
+
     [JsonStringEnumMemberName("Normaal")]
     Normal,
-    
+
     [JsonStringEnumMemberName("Laag")]
-    Low
+    Low,
 }
