@@ -37,7 +37,7 @@ public class PlanningEngineService : IPlanningEngineService
                     var previousRange = tracker.TimeRange;
 
                     double penalty = taskEnd > task.Deadline ? (taskEnd - task.Deadline).TotalMinutes * 20 : 0;
-                    double priorityWeight = task.Priority == Priority.High ? 5000 : (task.Priority == Priority.Medium ? 2000 : 500);
+                    double priorityWeight = task.Priority == Priority.High ? 5000 : (task.Priority == Priority.Normal ? 2000 : 500);
                     double stepScore = priorityWeight - (taskEnd.ToTimeSpan().TotalMinutes) - penalty;
 
                     currentResults.Add(
