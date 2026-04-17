@@ -1,24 +1,16 @@
 ﻿using System.Text;
 using System.Text.Json;
 using CodeKata.API.DTO;
+using CodeKata.BL.DOMAIN;
 
 namespace CodeKata.BL;
 
 public class FileHandler: IFileHandler
 {
-    public string DeserializeFromStream(Stream stream)
+    public PlanningData? DeserializeFromStream(Stream stream)
     {
-        try
-        {
-            var planningData = JsonSerializer.Deserialize<PlanningData>(stream);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
-       
-
-        return "test";
+        var planningData = JsonSerializer.Deserialize<PlanningData>(stream);
+        
+        return planningData;
     }
 }

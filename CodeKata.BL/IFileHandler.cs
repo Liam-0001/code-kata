@@ -1,6 +1,8 @@
-﻿namespace CodeKata.BL;
+﻿using CodeKata.BL.DOMAIN;
+
+namespace CodeKata.BL;
 
 public interface IFileHandler
 {
-    public string DeserializeFromStream(Stream stream);
+    public PlanningData? DeserializeFromStream(Stream stream);
 }
